@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('preparation') {
             steps {
-                git 'https://gitlab.com/chaitanyadev/poc-pipeline.git'
+                git 'https://github.com/ChaitanyaReddy-dev/projCert.git'
             }
         }
 		stage('build docker image'){
