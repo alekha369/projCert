@@ -26,7 +26,7 @@ pipeline {
 			steps{
 			sh '''#!/bin/bash
 			echo 'running docker image'
-		    sudo docker run -p 7050:80 
+		    sudo docker run -p 8000:80 
 			echo 'application deployed' phpbasic
 			'''
 			}
