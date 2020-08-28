@@ -13,7 +13,7 @@ pipeline {
 			  echo 'inside bash'
 			  echo 'building docker image'
 			  cd /var/lib/jenkins/workspace/phpproject
-			  sudo -n docker build -t phpbasic .
+			  sudo -n docker build -t phpbasic:v1 .
 			 '''
 			}
 		}
@@ -21,7 +21,7 @@ pipeline {
 			steps{
 			sh '''#!/bin/bash
 			echo 'running docker image'
-		    sudo docker run -p 8000:8050 phpbasic
+		    sudo docker run -d -p 8000:80 phpbasic:v1
 			echo 'application deployed' 
 			'''
 			}
