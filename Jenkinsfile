@@ -21,7 +21,7 @@ pipeline {
 			steps{
 			sh '''#!/bin/bash
 			echo 'running docker image'
-		    sudo docker run -d -p 9090:80 phpapp:v1
+		    sudo docker run -d --name appconatiner -p 9090:80 phpapp:v1
 			echo 'application deployed' 
 			'''
 			}
@@ -30,13 +30,13 @@ pipeline {
 	   steps{
 			sh '''#!/bin/bash
 			echo 'testing php app'
-		    cd /var/lib/jenkins/workspace/deployment
-			sh java -jar php-selenium.jar
+		        cd /var/lib/jenkins/workspace/deployment
+			java -jar php-selenium.jar
 			'''
 			}
 		     post { 
                 failure { 
-                         sh "sudo docker rm -f phpapp"
+                         sh "sudo docker rm -f appconatiner"
                         }
 					}						
        }
