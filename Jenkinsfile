@@ -21,7 +21,8 @@ pipeline {
 			steps{
 			sh '''#!/bin/bash
 			echo 'running docker image'
-		    sudo docker run -d --name appconatiner -p 9090:80 phpapp:v1
+			sudo docker rmi phpapp:v1
+		        sudo docker run -d --name appconatiner -p 9090:80 phpapp:v1
 			echo 'application deployed' 
 			'''
 			}
