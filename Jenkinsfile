@@ -12,8 +12,8 @@ pipeline {
 			 sh '''#!/bin/bash
 			  echo 'inside bash'
 			  echo 'building docker image'
-			  cd /var/lib/jenkins/workspace/phpproject
-			  sudo -n docker build -t phpbasic:v1 .
+			  cd /var/lib/jenkins/workspace/deployment
+			  sudo -n docker build -t phpapp:v1 .
 			 '''
 			}
 		}
@@ -21,10 +21,26 @@ pipeline {
 			steps{
 			sh '''#!/bin/bash
 			echo 'running docker image'
-		    sudo docker run -d -p 9090:80 phpbasic:v1
+		    sudo docker run -d -p 9090:80 phpapp:v1
 			echo 'application deployed' 
 			'''
 			}
 		}
-    }
+	   stage ('test') {
+	   steps{
+			sh '''#!/bin/bash
+			echo 'testing php app'
+		    cd /var/lib/jenkins/workspace/deployment
+			sh java -jar php-selenium.jar
+			'''
+			}
+		     post { 
+                failure { 
+                         sh "sudo docker rm -f phpapp"
+                        }
+					}						
+       }
+	 
+	   
+  }
 }
