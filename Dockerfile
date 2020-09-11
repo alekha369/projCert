@@ -1,4 +1,7 @@
-FROM php:7.2-apache
-COPY website /var/www/html
+FROM devopsedu/webapp
+ADD website /var/www/html
+RUN rm /var/www/html/index.html
 EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD apachectl -D FOREGROUND
+
+
