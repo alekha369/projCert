@@ -7,7 +7,7 @@ pipeline {
     agent any
 
     stages {
-        stage('preparation') {
+        stage('Cloning Git') {
             steps {
                 git 'https://github.com/alekha369/projCert.git'
             }
