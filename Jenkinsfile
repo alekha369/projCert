@@ -32,7 +32,7 @@ pipeline {
 			'''
 			}
 		}
-	   stage ('test') {
+/*	   stage ('test') {
 	   steps{
 			sh '''#!/bin/bash
 			echo 'testing php app'
@@ -46,5 +46,7 @@ pipeline {
                         }
 		    }						
               }
+    
+*/	      
   }
 }
