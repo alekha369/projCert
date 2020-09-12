@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('preparation') {
             steps {
-                git 'https://github.com/ChaitanyaReddy-dev/projCert.git'
+                git 'https://github.com/alekha369/projCert.git'
             }
         }
 		stage('build docker image'){
