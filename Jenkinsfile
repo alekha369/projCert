@@ -1,4 +1,10 @@
 pipeline {
+  environment {
+    dockerRegistry = "alekha/demo"
+    dockerRegistryCredential = 'dockerhub'
+    dockerImage = ''
+  }
+{
     agent any
 
     stages {
