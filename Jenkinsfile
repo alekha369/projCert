@@ -17,7 +17,7 @@ pipeline {
 			 sh '''#!/bin/bash
 			  echo 'inside bash'
 			  echo 'building docker image'
-			  cd /var/lib/jenkins/workspace/deployment
+			  cd /var/lib/jenkins/workspace/projCert
 			  sudo -n docker build -t phpapp:v1 .
 			 '''
 			}
