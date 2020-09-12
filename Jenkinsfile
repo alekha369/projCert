@@ -4,7 +4,6 @@ pipeline {
     dockerRegistryCredential = 'dockerhub'
     dockerImage = ''
   }
-{
     agent any
 
     stages {
@@ -45,9 +44,7 @@ pipeline {
                 failure { 
                          sh "sudo docker rm -f appconatiner"
                         }
-					}						
-       }
-	 
-	   
+		    }						
+              }
   }
 }
