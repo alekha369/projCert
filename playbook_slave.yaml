@@ -1,20 +1,4 @@
-pipeline {
-    agent any
-    stages {
-        stage('Cloning Git') {
-            steps {
-                git 'https://github.com/alekha369/projCert.git'
-            }
-        }
-        stage('Cloning Git') {
-            steps {
-               echo 'Slave configuration'
-                   }
-                }
-              }
-           }
-
-/*...
+...
 - hosts: mywebservers
   gather_facts: False
 
@@ -30,5 +14,5 @@ pipeline {
      apt: pkg=nginx state=installed update_cache=true
    - name: index.html copy
      template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
-*/
+
 
