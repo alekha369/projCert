@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/alekha369/NodeJS'
+        git 'https://github.com/alekha369/projCert'
       }
     }
     stage('Docker Install') {
