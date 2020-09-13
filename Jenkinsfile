@@ -14,10 +14,31 @@ pipeline {
         git 'https://github.com/alekha369/projCert'
       }
     }
-    stage('Docker Install') {
-       steps {
-         echo 'Docker install'
+    
+     stage('Building docker image') {
+      steps{
+        echo ' Build docker image'
+      }
+    }
+       stage(' Selenium Testing') {
+      steps {
+        echo 'Selinium Testing'
+      }
+    }
+    stage('Upload Image') {
+      steps{
+        echo 'Upload image'
+        }
+      }
+     stage ('Deploy') {
+           steps {
+              echo 'deploy'
+           }
        }
-    }	      
+     stage('Remove Unused docker image') {
+      steps{
+         echo 'remove unused docket image'
+      }
+    }  
   }
-}
+ }
