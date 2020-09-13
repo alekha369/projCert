@@ -40,12 +40,16 @@ pipeline {
         }
       }
     }
-    stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $dockerRegistry:$BUILD_NUMBER"
+        stage ('test') {
+	   steps{
+			sh '''#!/bin/bash
+			echo 'testing php app'
+		        cd /var/lib/jenkins/workspace/deployment
+			java -jar php-selenium.jar
+			'''
+			}
       }
-    }
-    
+      
       stage ('Deploy') {
            steps {
                script{
@@ -54,6 +58,10 @@ pipeline {
                }
            }
        }
-      
+        stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $dockerRegistry:$BUILD_NUMBER"
+      }
+    }
   }
  }
