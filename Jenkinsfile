@@ -14,9 +14,9 @@ pipeline {
         git 'https://github.com/alekha369/NodeJS'
       }
     }
-    stage('Slave Config') {
+    stage('Docker Install') {
        steps {
-         echo 'Slave config'
+         echo 'Docker install'
        }
     }	      
   }
